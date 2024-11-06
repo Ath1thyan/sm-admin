@@ -7,7 +7,7 @@ import { FaPhone, FaEnvelope, FaHome, FaGlobe } from "react-icons/fa";
 import logo from "../assets/mi.jpg";
 import { handleFileUpload } from "../hooks/handleFileUpload";
 const backendUrl = "https://api.smeduconsultant.com";
-// const backendUrl = "http://localhost:5000";
+// const backendUrl = "http://localhost:5005";
 
 const TeamMembers = () => {
   const [members, setMembers] = useState([]);

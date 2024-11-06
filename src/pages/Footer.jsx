@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const Footer = () => {
   const backendUrl = "https://api.smeduconsultant.com/footer";
+  // const backendUrl = "http://localhost:5005/footer";
 
   const [titleData, setTitleData] = useState([]);
   const [quickLink, setQuickLink] = useState([]);

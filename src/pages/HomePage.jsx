@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 const HomePage = () => {
   const [solutions, setSolutions] = useState([]);
   const [services, setServices] = useState([]);
