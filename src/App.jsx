@@ -16,7 +16,7 @@ import AboutForm from "./pages/AboutForm";
 import LayoutForm from "./pages/LayoutForm";
 import NewsForm from "./pages/NewsForm";
 import ServiceForm from "./pages/ServiceForm";
-import Footer from "./pages/Footer";
+import FooterForm from "./pages/FooterForm";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -43,13 +43,13 @@ function App() {
         >
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/team-members" element={<TeamMembers />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/auditpage" element={<AuditForm />} />
-          <Route path="/aboutpage" element={<AboutForm />} />
-          <Route path="/layoutpage" element={<LayoutForm />} />
-          <Route path="/newspage" element={<NewsForm />} />
-          <Route path="/servicepage" element={<ServiceForm />} />
-          <Route path="/footer" element={<Footer />} />
+          <Route path="/homepage" element={<HomePage/>}/>
+          <Route path="/auditpage" element={<AuditForm/>}/>
+          <Route path="/aboutpage" element={<AboutForm/>}/>
+          <Route path="/layoutpage" element={<LayoutForm/>}/>
+          <Route path="/newspage" element={<NewsForm/>}/>
+          <Route path="/servicepage" element={<ServiceForm/>}/>
+          <Route path="/footerpage" element={<FooterForm/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
