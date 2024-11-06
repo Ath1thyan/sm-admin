@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Footer = () => {
-  const backendUrl = "http://localhost:5000/api/footer";
+  const backendUrl = "https://api.smeduconsultant.com/footer";
 
   const [titleData, setTitleData] = useState([]);
   const [quickLink, setQuickLink] = useState([]);
