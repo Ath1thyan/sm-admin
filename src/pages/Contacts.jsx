@@ -5,7 +5,20 @@ const backendUrl = "https://api.smeduconsultant.com";
 import axios from "axios";
 
 const Contacts = () => {
+
+  const [contactDet, setContactDet] = useState(null);
+  const [newContactDet, setNewContactDet] = useState({ address: "", email: "", phno: "", });
   const [contacts, setContacts] = useState([]);
+
+  const fetchData = async () => {
+    try {
+        const contactDetResponse = await axios.get(`${backendUrl}/api/contactDet`);
+        setContactDet(contactDetResponse.data);
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -20,7 +33,33 @@ const Contacts = () => {
     };
 
     fetchContacts();
+    fetchData();
   }, []);
+
+  const handleSubmitContactDet = async (e) => {
+    e.preventDefault();
+    try {
+      if (contactDet) {
+        await axios.put(`${backendUrl}/api/contactDet`, newContactDet);
+      } else {
+        await axios.post(`${backendUrl}/api/contactDet`, newContactDet);
+      }
+      setNewContactDet({ address: "", email: "", phno: "", });
+      fetchData();
+    } catch (error) {
+      console.error("Error submitting Contact Details:", error);
+    }
+  };
+
+  const handleDeleteContactDet = async () => {
+    try {
+      await axios.delete(`${backendUrl}/api/contactDet`);
+      setContactDet(null);
+      fetchData();
+    } catch (error) {
+      console.error("Error deleting hero:", error);
+    }
+  };
 
   const handleDelete = async (contactId) => {
     try {
@@ -67,6 +106,57 @@ const Contacts = () => {
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
         Manage Contacts
       </h2>
+
+      <div className="p-4 border rounded shadow mb-5">
+        <h3 className="text-xl">Contact Details</h3>
+        <form onSubmit={handleSubmitContactDet} className="mt-2">
+          <input
+            type="text"
+            placeholder="address"
+            value={newContactDet.address}
+            onChange={(e) => setNewContactDet({ ...newContactDet, address: e.target.value })}
+            required
+            className="border p-2 w-full"
+          />
+          <input
+            type="text"
+            placeholder="email"
+            value={newContactDet.email}
+            onChange={(e) => setNewContactDet({ ...newContactDet, email: e.target.value })}
+            required
+            className="border p-2 w-full mt-2"
+          />
+          <input
+            type="text"
+            placeholder="phone number"
+            value={newContactDet.phno}
+            onChange={(e) => setNewContactDet({ ...newContactDet, phno: e.target.value })}
+            required
+            className="border p-2 w-full mt-2"
+          />
+          <button
+            type="submit"
+            className="bg-green-500 text-white py-2 px-4 rounded mt-4"
+          >
+            {contactDet ? "Update Contact Details" : "Add Contact Details"}
+          </button>
+          {contactDet && (
+            <div className="mt-2">
+              <h4 className="font-semibold">{contactDet.email}</h4>
+              <p>{contactDet.phno}</p>
+              <p>{contactDet.address}</p>
+              <button
+                onClick={handleDeleteContactDet}
+                className="bg-red-500 text-white py-1 px-2 rounded mt-2"
+              >
+                Delete Contact Details
+              </button>
+            </div>
+          )}
+        </form>
+      </div>
+
+      {/*Get In Touch*/}
       <div className="flex justify-end mb-4">
         <button
           onClick={downloadCSV}
