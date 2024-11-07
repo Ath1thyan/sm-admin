@@ -158,6 +158,10 @@ const Contacts = () => {
       </div>
 
       {/*Get In Touch*/}
+
+      <h2 className="text-3xl font-bold text-center text-gray-800 mt-2 mb-8">
+        Get In Touch Details
+      </h2>
       <div className="flex justify-end mb-4">
         <button
           onClick={downloadCSV}
