@@ -2,6 +2,7 @@ import { message } from "antd";
 import Layout from "../components/Layout";
 import React, { useEffect, useState } from "react";
 const backendUrl = "https://api.smeduconsultant.com";
+// const backendUrl = "http://localhost:5005";
 import axios from "axios";
 
 const Contacts = () => {
