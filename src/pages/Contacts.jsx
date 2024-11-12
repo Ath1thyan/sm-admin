@@ -143,9 +143,9 @@ const Contacts = () => {
           </button>
           {contactDet && (
             <div className="mt-2">
-              <h4 className="font-semibold">{contactDet.email}</h4>
+              <h4 className="font-semibold">{contactDet.address}</h4>
+              <p>{contactDet.email}</p>
               <p>{contactDet.phno}</p>
-              <p>{contactDet.address}</p>
               <button
                 onClick={handleDeleteContactDet}
                 className="bg-red-500 text-white py-1 px-2 rounded mt-2"
