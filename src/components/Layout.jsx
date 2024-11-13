@@ -130,7 +130,7 @@ const Layout = ({ children, setIsAuthenticated }) => {
                 <FaTwitter size={24} />
               </a>
             </div>
-            <p className="mt-4">1234 Education Lane, Knowledge City, USA</p>
+            <p className="mt-4">No.4, Ramani Nagar, Kadappa Road, Kolathur, Chennai-600099, India.</p>
             <p>
               Email:{" "}
               <a

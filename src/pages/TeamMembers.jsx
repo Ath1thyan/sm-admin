@@ -3,7 +3,7 @@ import { message, Button, Modal } from "antd";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { FaPhone, FaEnvelope, FaHome, FaGlobe } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaUser } from "react-icons/fa";
 import logo from "../assets/mi.jpg";
 import { handleFileUpload } from "../hooks/handleFileUpload";
 const backendUrl = "https://api.smeduconsultant.com";
@@ -22,7 +22,7 @@ const TeamMembers = () => {
     mobile: "",
     email: "",
     address: "",
-    website: "",
+    // website: "",
   });
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -112,7 +112,7 @@ const TeamMembers = () => {
       mobile: "",
       email: "",
       address: "",
-      website: "",
+      // website: "",
     });
   };
 
@@ -138,7 +138,7 @@ const TeamMembers = () => {
       mobile: member.mobile,
       email: member.email,
       address: member.address,
-      website: member.website,
+      // website: member.website,
       image: member.image,
     });
     setIsModalVisible(true);
@@ -213,10 +213,10 @@ const TeamMembers = () => {
                     </a>
                   </p>
                   <p className="flex items-center text-gray-800">
-                    <FaHome className="mr-2 text-blue-600" />
+                    <FaUser className="mr-2 text-blue-600" />
                     {member.address}
                   </p>
-                  <p className="flex items-center text-gray-800">
+                  {/* <p className="flex items-center text-gray-800">
                     <FaGlobe className="mr-2 text-blue-600" />
                     <a
                       href={member.website}
@@ -226,7 +226,7 @@ const TeamMembers = () => {
                     >
                       {member.website}
                     </a>
-                  </p>
+                  </p> */}
                 </div>
                 <Button
                   className="mt-4 w-full"
